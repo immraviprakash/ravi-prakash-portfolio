@@ -1,0 +1,584 @@
+@import "tailwindcss";
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   DESIGN SYSTEM — Ravi Prakash Portfolio
+   Palette: Near-Black #0C0C0C / Gold #C9972E / Ivory #F5F1E6
+   Typography: Playfair Display + Inter + Permanent Marker + Special Elite
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+@layer base {
+  :root {
+    /* Primary palette */
+    --black: #0C0C0C;
+    --black-soft: #121212;
+    --gold: #C9972E;
+    --gold-warm: #D9A441;
+    --gold-hover: #D4A82E;
+    --gold-subtle: rgba(201, 151, 46, 0.08);
+    --gold-border: rgba(201, 151, 46, 0.2);
+    --ivory: #F5F1E6;
+    --white: #FFFFFF;
+
+    /* Sticky note colors */
+    --note-cream: #EDE6D6;
+    --note-mustard: #D9A441;
+    --note-grey: #D9D2C5;
+
+    /* Neutrals */
+    --gray-900: #1A1A1A;
+    --gray-700: #333333;
+    --gray-500: #666666;
+    --gray-400: #888888;
+    --gray-300: #AAAAAA;
+    --gray-200: #D4D4D4;
+    --gray-100: #F0F0F0;
+    --gray-50: #F8F8F8;
+
+    /* Borders */
+    --line-subtle: rgba(17, 17, 17, 0.06);
+    --line-medium: rgba(17, 17, 17, 0.12);
+    --line-strong: rgba(17, 17, 17, 0.24);
+
+    /* Typography */
+    --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-serif-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-marker: 'Permanent Marker', cursive;
+    --font-notebook: 'Special Elite', 'Courier New', monospace;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--ivory);
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: var(--ivory);
+    color: var(--black-soft);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    letter-spacing: -0.011em;
+    line-height: 1.6;
+    overflow-x: hidden;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ━━━ Typography Classes ━━━ */
+
+.font-display,
+.font-serif-display {
+  font-family: var(--font-serif-display);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+.font-mono {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, monospace;
+}
+
+.font-notebook {
+  font-family: var(--font-notebook);
+}
+
+.font-marker {
+  font-family: var(--font-marker);
+}
+
+/* ━━━ Layout ━━━ */
+
+.editorial-container {
+  width: min(1200px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+  .editorial-container {
+    width: min(1200px, calc(100% - 120px));
+  }
+}
+
+.editorial-section {
+  padding: 100px 0 120px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .editorial-section {
+    padding: 85px 0 100px;
+  }
+}
+
+/* ━━━ Eyebrow Label ━━━ */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+.eyebrow-gold {
+  color: var(--gold);
+}
+
+/* ━━━ Typewriter Cursor ━━━ */
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background-color: var(--gold);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ━━━ Arc Gradient Glow Layer (Top Atmosphere) ━━━ */
+
+.arc-glow-layer {
+  position: fixed;
+  top: 0;
+  left: -10vw;
+  right: -10vw;
+  height: 110vh;
+  z-index: 2;
+  pointer-events: none;
+  will-change: opacity, transform;
+  overflow: hidden;
+}
+
+/* Layered organic radial gradients — 4 overlapping shapes */
+.arc-glow-layer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background:
+    /* Layer 1: Main center dome — wide, dominant */
+    radial-gradient(
+      ellipse 80% 52% at 50% -2%,
+      #0C0C0C 0%,
+      #0C0C0C 15%,
+      #161208 26%,
+      #3a2a0e 34%,
+      #C9972E 42%,
+      #D9A441 48%,
+      #e8c972 56%,
+      rgba(245, 241, 230, 0.6) 68%,
+      transparent 82%
+    ),
+    /* Layer 2: Left spill — offset, softer, wider bleed */
+    radial-gradient(
+      ellipse 55% 48% at 28% -4%,
+      rgba(12, 12, 12, 0.85) 0%,
+      rgba(26, 21, 8, 0.7) 22%,
+      rgba(201, 151, 46, 0.45) 40%,
+      rgba(217, 164, 65, 0.25) 52%,
+      rgba(232, 201, 114, 0.12) 64%,
+      transparent 80%
+    ),
+    /* Layer 3: Right spill — slightly different size/position */
+    radial-gradient(
+      ellipse 50% 44% at 74% -6%,
+      rgba(12, 12, 12, 0.75) 0%,
+      rgba(26, 21, 8, 0.6) 20%,
+      rgba(201, 151, 46, 0.4) 38%,
+      rgba(217, 164, 65, 0.2) 50%,
+      rgba(232, 201, 114, 0.1) 62%,
+      transparent 78%
+    ),
+    /* Layer 4: Tight center bloom — brighter gold core punch */
+    radial-gradient(
+      ellipse 40% 28% at 52% 0%,
+      rgba(12, 12, 12, 0.95) 0%,
+      rgba(12, 12, 12, 0.9) 20%,
+      rgba(58, 42, 14, 0.8) 32%,
+      rgba(201, 151, 46, 0.6) 44%,
+      rgba(232, 201, 114, 0.15) 62%,
+      transparent 76%
+    );
+}
+
+/* Noise grain overlay — slightly stronger for organic edges */
+.arc-glow-layer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.45;
+  mix-blend-mode: overlay;
+}
+
+/* ━━━ Bottom Closing Gradient (Mirrored Atmosphere) ━━━ */
+
+.arc-glow-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.arc-glow-bottom::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -10vw;
+  right: -10vw;
+  height: 52vh;
+  background:
+    /* Layer 1: Main dramatic center dome — rich continuous flow from black to gold to ivory */
+    radial-gradient(
+      ellipse 65% 72% at 50% 102%,
+      #0C0C0C 0%,
+      #0C0C0C 22%,
+      #131008 30%,
+      #1e160a 38%,
+      #2f210b 44%,
+      #5a3f12 50%,
+      #8c651e 55%,
+      #b8872b 60%,
+      #C9972E 64%,
+      #d4a63e 68%,
+      rgba(217, 164, 65, 0.65) 72%,
+      rgba(228, 185, 98, 0.42) 76%,
+      rgba(238, 206, 138, 0.25) 80%,
+      rgba(245, 226, 178, 0.14) 84%,
+      rgba(245, 236, 208, 0.06) 88%,
+      rgba(245, 241, 230, 0) 94%
+    ),
+    /* Layer 2: Soft core depth — adds rich three-dimensional volume in the deep center */
+    radial-gradient(
+      ellipse 42% 46% at 50% 102%,
+      rgba(12, 12, 12, 0.95) 0%,
+      rgba(12, 12, 12, 0.75) 28%,
+      rgba(45, 32, 10, 0.4) 48%,
+      rgba(201, 151, 46, 0.15) 62%,
+      transparent 76%
+    ),
+    /* Layer 3: Low floor foundation — ensures bottom corners stay velvety dark without upper rings */
+    radial-gradient(
+      ellipse 95% 36% at 50% 104%,
+      #0C0C0C 0%,
+      #0C0C0C 44%,
+      #141007 60%,
+      rgba(22, 17, 8, 0.4) 75%,
+      transparent 90%
+    );
+}
+
+/* Noise for bottom glow */
+.arc-glow-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -10vw;
+  right: -10vw;
+  height: 52vh;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.45;
+  mix-blend-mode: overlay;
+}
+
+/* ━━━ Golden Rim-Light on Hero Headline ━━━ */
+
+.hero-headline-rimlight {
+  text-shadow:
+    0 -1px 0 rgba(232, 182, 74, calc(0.7 * var(--glow-opacity, 1))),
+    0 -2px 6px rgba(201, 151, 46, calc(0.35 * var(--glow-opacity, 1))),
+    0 -3px 12px rgba(201, 151, 46, calc(0.15 * var(--glow-opacity, 1)));
+}
+
+/* ━━━ Sticky Note Physicality ━━━ */
+
+.sticky-note {
+  position: relative;
+  padding: 28px 22px 24px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.sticky-note::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 128 128' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ━━━ Flip Card ━━━ */
+
+.flip-card {
+  perspective: 800px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-card-front {
+  position: relative;
+}
+
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px 16px;
+}
+
+/* ━━━ Hero overflow wrapper ━━━ */
+
+.hero-overflow-clip {
+  overflow: hidden;
+}
+
+/* ━━━ Scrollbar ━━━ */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ivory);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* ━━━ Selection ━━━ */
+
+::selection {
+  background: rgba(201, 151, 46, 0.15);
+  color: var(--black-soft);
+}
+
+/* ━━━ Identity Card Metallic Light Sweep ━━━ */
+
+@keyframes metallicLightSweep {
+  0% {
+    transform: translate3d(-48%, -48%, 0) rotate(46deg);
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(48%, 48%, 0) rotate(46deg);
+    opacity: 0;
+  }
+}
+
+.card-light-sweep {
+  position: absolute;
+  top: -125%;
+  left: 0;
+  width: 90%;
+  height: 350%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(217, 160, 91, 0) 8%,
+    rgba(217, 160, 91, 0.06) 20%,
+    rgba(201, 151, 46, 0.18) 35%,
+    rgba(217, 160, 91, 0.32) 45%,
+    rgba(201, 151, 46, 0.40) 50%,
+    rgba(217, 160, 91, 0.32) 55%,
+    rgba(201, 151, 46, 0.18) 65%,
+    rgba(217, 160, 91, 0.06) 80%,
+    rgba(217, 160, 91, 0) 92%,
+    transparent 100%
+  );
+  filter: blur(8px);
+  will-change: transform, opacity;
+  animation: metallicLightSweep 4.8s cubic-bezier(0.4, 0, 0.2, 1) 0s both;
+  pointer-events: none;
+}
+
+/* ━━━ Nav Frosted Glass Scrolled State ━━━ */
+.nav-header {
+  background-color: transparent;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-header.nav-scrolled {
+  background-color: rgba(245, 241, 230, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(18, 18, 18, 0.08);
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .nav-header.nav-scrolled {
+    background-color: rgba(245, 241, 230, 0.90);
+  }
+}
+
+@supports (-webkit-backdrop-filter: blur(1px)) {
+  .nav-header.nav-scrolled {
+    background-color: rgba(245, 241, 230, 0.88);
+  }
+}
+
+/* ━━━ Mobile Sticky Notes Composition (< 1024px) ━━━
+   DESKTOP (>= 1024px) IS 100% LOCKED AND UNTOUCHED.
+   On mobile and tablet, arrange the 3 sticky notes into an organic,
+   scattered cluster centered directly below "I AM A" with ample
+   breathing room, zero overlap with headings, and zero horizontal scroll. */
+
+@media (max-width: 1023px) {
+  /* Center "I AM A" gold underline directly underneath the text on mobile */
+  .hero-marker-stroke {
+    margin-inline: auto !important;
+  }
+
+  .hero-notes-container {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    height: 330px !important;
+    min-height: 330px !important;
+    margin-inline: auto !important;
+    padding-top: 0 !important;
+    display: block !important;
+  }
+
+  .hero-note-wrapper {
+    position: absolute !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  /* 1. Developer note — Center-top focal point, tape strip */
+  .hero-note-developer {
+    top: 14px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    z-index: 3 !important;
+  }
+
+  /* 2. Artist note — Mid-left, grey paper, paperclip, tilted +7deg */
+  .hero-note-artist {
+    top: 106px !important;
+    left: 6px !important;
+    right: auto !important;
+    z-index: 2 !important;
+  }
+
+  /* 3. Designer note — Mid-right, cream paper, pushpin, tilted -4deg */
+  .hero-note-designer {
+    top: 118px !important;
+    right: 6px !important;
+    left: auto !important;
+    z-index: 1 !important;
+  }
+
+  /* Elevate flipped card on mobile above other notes */
+  .hero-note-wrapper.is-flipped {
+    z-index: 25 !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-notes-container {
+    max-width: 296px !important;
+    height: 305px !important;
+    min-height: 305px !important;
+  }
+
+  .hero-note-developer {
+    top: 10px !important;
+  }
+
+  .hero-note-artist {
+    top: 98px !important;
+    left: 0px !important;
+  }
+
+  .hero-note-designer {
+    top: 110px !important;
+    right: 0px !important;
+  }
+}
+
