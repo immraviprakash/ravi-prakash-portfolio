@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background-color: #F5F1E6;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .canvas {
+      width: 1200px;
+      height: 630px;
+      position: relative;
+      background-color: #F5F1E6;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 56px 72px;
+    }
+
+    /* Tactile stationery double frame */
+    .outer-frame {
+      position: absolute;
+      top: 36px;
+      bottom: 36px;
+      left: 36px;
+      right: 36px;
+      border: 1px solid rgba(201, 151, 46, 0.4);
+      pointer-events: none;
+    }
+
+    .inner-frame {
+      position: absolute;
+      top: 42px;
+      bottom: 42px;
+      left: 42px;
+      right: 42px;
+      border: 1px solid rgba(12, 12, 12, 0.08);
+      pointer-events: none;
+    }
+
+    /* Subtle corner registration accents */
+    .corner {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      pointer-events: none;
+    }
+    .corner-tl { top: 32px; left: 32px; border-top: 2px solid #C9972E; border-left: 2px solid #C9972E; }
+    .corner-tr { top: 32px; right: 32px; border-top: 2px solid #C9972E; border-right: 2px solid #C9972E; }
+    .corner-bl { bottom: 32px; left: 32px; border-bottom: 2px solid #C9972E; border-left: 2px solid #C9972E; }
+    .corner-br { bottom: 32px; right: 32px; border-bottom: 2px solid #C9972E; border-right: 2px solid #C9972E; }
+
+    /* Top bar */
+    .top-bar {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #766E62;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #C9972E;
+    }
+
+    .top-right {
+      font-family: 'Inter', sans-serif;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      color: #766E62;
+    }
+
+    /* Core Hero Identity Card */
+    .identity-core {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin: auto 0;
+    }
+
+    .monogram {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 102px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 0.95;
+      color: #0C0C0C;
+      margin-bottom: 8px;
+    }
+
+    .monogram .gold-period {
+      color: #C9972E;
+    }
+
+    .gold-bar {
+      width: 52px;
+      height: 2.5px;
+      background: #C9972E;
+      border-radius: 2px;
+      margin: 14px 0 16px;
+    }
+
+    .full-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 56px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: #0C0C0C;
+      margin-bottom: 14px;
+    }
+
+    .role-capsule {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      background-color: rgba(201, 151, 46, 0.09);
+      border: 1px solid rgba(201, 151, 46, 0.35);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #B38218;
+      margin-bottom: 16px;
+    }
+
+    .supporting-tagline {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 21px;
+      font-weight: 400;
+      font-style: italic;
+      color: #4E473D;
+      letter-spacing: 0.005em;
+      line-height: 1.4;
+      max-width: 660px;
+    }
+
+    /* Bottom bar */
+    .bottom-bar {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .bottom-tags {
+      display: flex;
+      gap: 10px;
+    }
+
+    .tag-item {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #61594E;
+      padding: 4px 12px;
+      background: rgba(255, 255, 255, 0.45);
+      border: 1px solid rgba(12, 12, 12, 0.11);
+      border-radius: 9999px;
+    }
+
+    .bottom-location {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #766E62;
+    }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="outer-frame"></div>
+    <div class="inner-frame"></div>
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+
+    <header class="top-bar">
+      <div class="top-left">
+        <span class="status-dot"></span>
+        <span>PORTFOLIO &middot; 2026</span>
+      </div>
+      <div class="top-right">imraviprakash.netlify.app</div>
+    </header>
+
+    <main class="identity-core">
+      <div class="monogram">RK<span class="gold-period">.</span></div>
+      <div class="gold-bar"></div>
+      <h1 class="full-name">Ravi Prakash</h1>
+      <div class="role-capsule">FULL-STACK DEVELOPER &middot; AI ENTHUSIAST</div>
+      <p class="supporting-tagline">Building thoughtful digital experiences with code, design &amp; AI.</p>
+    </main>
+
+    <footer class="bottom-bar">
+      <div class="bottom-tags">
+        <span class="tag-item">React &middot; Node.js</span>
+        <span class="tag-item">Python &middot; AI Systems</span>
+        <span class="tag-item">Interactive UI</span>
+      </div>
+      <div class="bottom-location">BANGALORE, IN</div>
+    </footer>
+  </div>
+</body>
+</html>

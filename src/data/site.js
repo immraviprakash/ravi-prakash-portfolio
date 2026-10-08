@@ -10,9 +10,12 @@ export const site = {
   location: 'Bangalore, India',
   email: 'immraviprakash@gmail.com',
   phone: '+91 63616 63390',
-  title: 'Ravi Prakash - Portfolio',
+  title: 'Ravi Prakash — Portfolio',
+  metaTitle: 'Ravi Prakash — Full-Stack Developer · AI Enthusiast',
   description:
-    'Ravi Prakash is a web developer based in Bangalore building fast, thoughtful full-stack products, interactive systems, and AI-powered experiences.',
+    'Full-Stack Developer and AI Enthusiast building thoughtful web experiences, AI-powered products, and interactive digital experiences.',
+  url: 'https://imraviprakash.netlify.app/',
+  ogImage: 'https://imraviprakash.netlify.app/og-image.png',
   social: {
     github: 'https://github.com/immraviprakash',
     linkedin: 'https://www.linkedin.com/in/ravi-prakash-k-4953b8251',
