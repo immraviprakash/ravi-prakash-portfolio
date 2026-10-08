@@ -1,219 +1,238 @@
-# Ravi Prakash — Personal Portfolio
+<h1 align="center">Ravi Prakash — Portfolio</h1>
 
-A personal portfolio and digital workspace for **Ravi Prakash (RK.)**, an early-career full-stack developer and product engineer based in Bangalore, India. 
+<p align="center">
+  <em>A tactile, editorial portfolio built around ivory paper, ink-black type and gold accents.</em>
+</p>
 
-The site rejects generic portfolio templates in favor of a tactile, editorial aesthetic inspired by physical stationery, print typography, and responsive micro-interactions.
-
----
-
-## Design Concept & Aesthetic
-
-The portfolio is structured around high contrast, warm textures, and tangible physicality:
-
-- **Curated Color Palette**:
-  - **Ivory Base**: `#F5F1E6` — warm, muted editorial backdrop
-  - **Deep Ink / Near-Black**: `#0C0C0C` & `#121212` — crisp typography and structural contrast
-  - **Warm Accent Gold**: `#C9972E` & `#D9A441` — highlights, interactive states, and glowing accents
-- **Typographic System**:
-  - **Display Serif**: *Playfair Display* for large editorial headlines
-  - **Interface Sans**: *Inter* for readable body copy, metadata, and buttons
-  - **Handwritten / Tactile**: *Permanent Marker* for sticky note labels and informal greetings
-  - **Monospace Accents**: Clean uppercase tracking for category headers and timestamps
-- **Tactile Details**:
-  - Custom SVG physical stationery motifs: brass pushpins with radial highlights, dark tape strips, wire paperclips, and ink squiggles
-  - Multi-layered radial atmosphere glows at the top and bottom with SVG fractal noise grain overlays
+<p align="center">
+  <a href="https://imraviprakash.netlify.app/"><b>Live site</b></a> &nbsp;·&nbsp;
+  <a href="#whats-on-the-site">Sections</a> &nbsp;·&nbsp;
+  <a href="#featured-projects">Projects</a> &nbsp;·&nbsp;
+  <a href="#tech-stack">Tech stack</a> &nbsp;·&nbsp;
+  <a href="#getting-started">Getting started</a>
+</p>
 
 ---
 
-## Sections & Experience
+## Overview
 
-### 1. Navigation Header
-- **Dynamic Frosted Glass**: Uses an `IntersectionObserver` on the hero section to transition from a transparent header to a frosted glass background (`rgba(245, 241, 230, 0.88)` with backdrop blur) once the hero scrolls past.
-- **Scroll-Reactive Contrast**: Header text color switches dynamically between white and ink black based on whether the navbar is currently over the dark atmosphere glow or the light page body.
-- **Active Section Tracking**: Synchronizes with scroll position to move a spring-animated gold underline indicator (`layoutId="navActiveLine"`) beneath active links.
-- **Hash-Free Smooth Scrolling**: Programmatic scrolling keeps URLs clean while navigating smoothly between sections.
-- **Mobile Drawer**: Responsive sliding overlay with large serif navigation links and quick CTA access.
+The personal portfolio of **Ravi Prakash (RK.)**, a full-stack developer based in Bangalore, India, who builds AI-powered products.
 
-### 2. Hero
-- **Editorial Title**: Fluid `clamp()` typography displaying *"Hey, I'm"* in handwritten script above a two-line serif display: *"Ravi Prakash"*.
-- **Golden Rim-Light**: Subtle text-shadow rim lighting that reacts to scroll depth via CSS custom properties (`--glow-opacity`).
-- **Interactive Sticky Notes**: Three physical desk notes drop into place using Framer Motion spring physics with stagger and angular wobble:
-  - **Developer** (Gold note with tape strip): Drops first; flips 3D on click to reveal a link to GitHub.
-  - **Designer** (Cream note with brass pushpin): Drops second; flips to offer a quick scroll to the contact form.
-  - **Artist** (Grey-beige note with paperclip & squiggle): Drops third; flips to reveal an Instagram art profile link.
-  - *Interaction details*: 3D preserve-3d card flips, automatic reversion 2 seconds after cursor exit, and Escape key dismissal.
-- **Action CTAs**: Quick buttons to jump to selected work or download the bundled resume PDF.
+The site is a single page designed to feel less like a template and more like a desk: print typography, warm paper tones, and small stationery details such as pushpins, tape and paperclips, with motion used to add character rather than noise.
 
-### 3. About Me
-- **Interactive Identity Card**: Matte black card (`#111111`) displaying personal monogram branding, skill pills with gold color-swap hover effects, focus areas (*Agentic AI*, *Creative Web*, *Product Development*), languages known, and location metadata.
-- **Specular Light Sweep**: Diagonal metallic light sweep animation (`metallicLightSweep`) that glides across the card when scrolled into view, hovered, or when clicking "ABOUT" in the navbar.
-- **Editorial Story**: Narrative copy introducing design philosophy and engineering focus.
-
-### 4. Selected Projects
-Spacious alternating two-column layouts featuring custom presentation cards with brand logos, ambient radial gold glows, problem-solution summaries, and direct repository/live links:
-
-1. **Zix'Ovibes** — *Full-Stack Music & Focus Workspace*
-   - Combines ambient audio streaming with an AI-driven Deep Focus orchestration system that translates natural language goals into Pomodoro work blocks.
-   - **Stack**: React.js, Vite, JavaScript, Node.js, Express, AI APIs
-   - **Links**: [Live Demo](https://zixovibes.netlify.app/) · [GitHub](https://github.com/immraviprakash/zixovibes)
-2. **Rakta Seva Connect** — *AI-Assisted Emergency Blood-Donation Platform*
-   - Android application built during an internship at MindMatrix to streamline emergency blood donor discovery, eligibility filtering, and Groq AI-assisted notifications.
-   - **Stack**: Kotlin, Jetpack Compose, Firebase, Firestore, MVVM, Groq AI
-   - **Links**: [GitHub](https://github.com/immraviprakash/rakta-seva-connect)
-3. **Trade-Z** — *Collaborative AI Trading Assistant*
-   - Market intelligence system synthesizing LSTM forecasting, reinforcement learning strategy signals, and NLP-based sentiment analysis.
-   - **Stack**: Python, Flask, React.js, LSTM, Reinforcement Learning, NLP
-   - **Links**: [GitHub](https://github.com/immraviprakash/trade-z)
-
-### 5. Technical Skills
-A 2×2 card grid grouping technologies into 4 focused categories:
-- **01 — BUILD**: JavaScript, React, Node.js, Express.js, Flask, REST APIs, Kotlin, Jetpack Compose, HTML, CSS
-- **02 — INTELLIGENCE**: Python, Generative AI, AI / LLM APIs, Prompt Engineering, RAG, Machine Learning, NLP, Sentiment Analysis, LSTM, Reinforcement Learning, Explainable AI
-- **03 — DATA**: SQL, MySQL, MongoDB, Firebase Firestore
-- **04 — TOOLS & CLOUD**: Git, GitHub, Firebase, Google Cloud, Render, Vercel, Netlify
-
-Interactive pill tags invert from dark borders to solid gold fills with subtle elevation on hover.
-
-### 6. Experience & Education
-- **Scroll-Driven Timeline**: Framer Motion `useScroll` and `useTransform` hook that draws a gold progress line down the timeline in real time as the user scrolls.
-- **MindMatrix**: Android Application Development Intern (GenAI) — Feb 2026 – May 2026.
-- **Sri Sairam College of Engineering**: B.E. in Computer Science & Engineering (2022 – 2026).
-
-### 7. Contact
-- **Direct Channels**: One-click links for direct email, phone, and Bangalore location.
-- **Web3Forms Integration**: Fully wired submission endpoint sending messages without page reloads.
-- **Client-Side Validation**: Real-time validation for name, email format, and message content.
-- **Honeypot Anti-Spam**: Hidden `_gotcha` field silently traps automated bots without adding user-facing CAPTCHA friction.
-- **State Handling**: Fixed-height inline status container preventing layout jump on submission or errors.
-
-### 8. Footer
-- Bottom closing atmospheric gradient arc mirroring the hero.
-- Social links (GitHub, LinkedIn) with gold hover states and smooth back-to-top scroll button.
+> **Live:** [imraviprakash.netlify.app](https://imraviprakash.netlify.app/)
 
 ---
 
-## Responsive & Mobile Behavior
+## Design system
 
-- **Mobile Hero Composition**: Screen widths `< 1024px` reposition the three sticky notes from a horizontal row into an intentional, vertically staggered cluster centered below the headline to eliminate horizontal scrolling while preserving tactile click-to-flip functionality.
-- **Fluid Typography**: Uses CSS `clamp()` across all headline elements so typography scales smoothly from 320px mobile screens to large desktop monitors.
-- **Mobile Menu Drawer**: Fullscreen navigation drawer with animated open/close transitions (`AnimatePresence`).
-- **Touch-Friendly Hit Targets**: Interactive pills, links, and buttons maintain comfortable tap areas.
+**Palette**
+
+| Role | Hex | Used for |
+| --- | --- | --- |
+| Ivory | `#F5F1E6` | Page background |
+| Ink | `#0C0C0C` / `#121212` | Typography, cards and structure |
+| Gold | `#C9972E` / `#D9A441` | Highlights, interactive states and glows |
+
+**Typography**
+
+| Role | Font | Used for |
+| --- | --- | --- |
+| Display serif | Playfair Display | Large editorial headlines |
+| Interface sans | Inter | Body copy, metadata and buttons |
+| Handwritten | Permanent Marker | Sticky note labels and the "Hey, I'm" greeting |
+| Accents | Tracked uppercase | Category labels and timestamps |
+
+**Signature details**
+
+- Hand-drawn SVG stationery: brass pushpins with radial highlights, dark tape strips, wire paperclips and ink squiggles
+- Layered radial glows at the top and bottom of the page, finished with an SVG fractal-noise grain
 
 ---
 
-## Tech Stack
+## What's on the site
+
+### Navigation
+- **Frosted glass header** — transparent over the hero, then switches to a frosted glass background (`rgba(245, 241, 230, 0.88)` with backdrop blur) once the hero has scrolled past, detected with an `IntersectionObserver`
+- **Scroll-reactive contrast** — header text switches between white and ink black depending on whether it sits over the dark glow or the light page
+- **Active section tracking** — a spring-animated gold underline follows the section you're in
+- **Hash-free smooth scrolling** — navigation scrolls smoothly between sections without adding fragments to the URL
+- **Mobile drawer** — a full-screen overlay with large serif links and a quick call to action
+
+### Hero
+- **Editorial title** — "Hey, I'm" in handwritten script above a two-line serif "Ravi Prakash", using fluid `clamp()` sizing
+- **Golden rim-light** — a subtle text-shadow highlight that reacts to scroll depth through the `--glow-opacity` custom property
+- **Interactive sticky notes** — Developer, Designer and Artist notes drop into place on load with Framer Motion spring physics, staggered with a slight angular wobble
+  - The Developer and Artist notes flip in 3D on click to reveal links to GitHub and Instagram
+  - A flipped note reverts two seconds after the cursor leaves, and Escape dismisses it
+- **Calls to action** — jump to selected work, or download the resume PDF
+
+### About
+- **Identity card** — a matte black card with monogram branding, skill pills with a gold hover state, current focus areas (Agentic AI, Creative Web, Product Development), languages known and location, finished with a metallic light sweep
+- **Editorial story** — short copy on how I think about design and engineering
+
+### Projects
+Spacious, alternating two-column layouts. Each project has its brand logo, an ambient gold glow, a short description, its stack, and direct links.
+
+### Skills
+A 2×2 grid of cards grouping technologies into four categories, with interactive pill tags (see [Technical skills](#technical-skills)).
+
+### Experience and education
+- **Scroll-drawn timeline** — a gold progress line is drawn down the timeline in real time as you scroll, using Framer Motion's `useScroll` and `useTransform`
+- **MindMatrix** — Android Application Development Intern (GenAI), Feb 2026 – May 2026
+- **Sri Sairam College of Engineering** — B.E. in Computer Science & Engineering, 2022 – 2026
+
+### Contact
+- **Direct channels** — one-click email and phone links, plus location
+- **Web3Forms delivery** — messages are sent without a page reload and arrive in my inbox
+- **Validation** — name, email format and message are checked before sending
+- **Spam protection** — a hidden honeypot field catches bots without a CAPTCHA
+- **Stable layout** — a fixed-height status area keeps the page from jumping on success or error
+
+### Footer
+- A closing gradient arc that mirrors the hero, social links with gold hover states, and a smooth back-to-top button
+
+---
+
+## Featured projects
+
+**Zix'Ovibes** — *Full-stack music and focus workspace*
+A full-stack music and focus workspace combining music discovery, playlists and persistent playback with an AI-powered Deep Focus system. Users describe what they want to accomplish in natural language and turn it into structured tasks, timed work sessions and trackable progress.
+**Stack:** React.js · Vite · JavaScript · Node.js · Express · AI APIs
+**Links:** [Live demo](https://zixovibes.netlify.app/) · [GitHub](https://github.com/immraviprakash/zixovibes)
+
+**Rakta Seva Connect** — *AI-assisted emergency blood-donation platform*
+An Android application developed during my MindMatrix internship to coordinate blood donors and emergency requests. It combines donor profiles, blood-group and eligibility filtering, proximity-based discovery, Firebase-backed workflows, emergency notifications and AI-assisted request communication.
+**Stack:** Kotlin · Jetpack Compose · Firebase · Firestore · MVVM · Groq AI
+**Links:** [GitHub](https://github.com/immraviprakash/rakta-seva-connect)
+
+**Trade-Z** — *Collaborative AI trading assistant*
+A collaborative AI trading assistant, built with a team, that combines LSTM market forecasting, reinforcement-learning strategy signals and sentiment analysis in a React–Flask application. My contribution focused on backend development and AI workflow integration.
+**Stack:** Python · Flask · React.js · LSTM · Reinforcement Learning · NLP
+**Links:** [GitHub](https://github.com/immraviprakash/trade-z)
+
+---
+
+## Technical skills
+
+| Category | Technologies |
+| --- | --- |
+| **01 — Build** | JavaScript, React, Node.js, Express.js, Flask, REST APIs, Kotlin, Jetpack Compose, HTML, CSS |
+| **02 — Intelligence** | Python, Generative AI, AI / LLM APIs, Prompt Engineering, RAG, Machine Learning, NLP, Sentiment Analysis, LSTM, Reinforcement Learning, Explainable AI |
+| **03 — Data** | SQL, MySQL, MongoDB, Firebase Firestore |
+| **04 — Tools & Cloud** | Git, GitHub, Firebase, Google Cloud, Render, Vercel, Netlify |
+
+---
+
+## Responsive behaviour
+
+- **Mobile hero** — below 1024px, the three sticky notes move from a horizontal row into a staggered cluster beneath the headline, so there is no horizontal scrolling and the flip interaction still works
+- **Fluid typography** — `clamp()` is used across all headlines, scaling smoothly from 320px screens to large monitors
+- **Mobile menu** — a full-screen drawer with animated open and close transitions (`AnimatePresence`)
+- **Touch targets** — pills, links and buttons keep comfortable tap areas
+
+---
+
+## Tech stack
 
 | Layer | Technologies |
-|---|---|
-| **Core Framework** | [React 19](https://react.dev/) + [Vite 8](https://vite.dev/) |
-| **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) + Custom CSS Design Tokens |
-| **Animation & Motion** | [Framer Motion 13](https://www.framer.com/motion/) |
-| **Icons & Media** | [Lucide React](https://lucide.dev/) + Custom Hand-Drawn SVG Graphics |
-| **Form Endpoint** | Web3Forms API |
-| **Linter** | [Oxlint](https://oxc.rs/) |
+| --- | --- |
+| Framework | [React 19](https://react.dev/) + [Vite](https://vite.dev/) |
+| Styling | [Tailwind CSS v4](https://tailwindcss.com/) + custom CSS design tokens |
+| Motion | [Framer Motion](https://www.framer.com/motion/) |
+| Icons and graphics | [Lucide React](https://lucide.dev/) + hand-drawn SVGs |
+| Contact form | [Web3Forms](https://web3forms.com/) |
+| Linting | [Oxlint](https://oxc.rs/) |
+| Hosting | [Netlify](https://www.netlify.com/) |
 
 ---
 
-## Project Structure
+## Project structure
 
-```
+<details>
+<summary>View the file tree</summary>
+
+```text
 ├── public/
 │   ├── Ravi-Prakash-Resume.pdf   # Downloadable resume
-│   ├── favicon*                  # Platform favicons and icons
+│   ├── favicon*                  # Favicons and icons
 │   └── icons.svg
 ├── src/
-│   ├── assets/                   # Project brand logos (Zix'Ovibes, Rakta Seva, Trade-Z)
+│   ├── assets/                   # Project brand logos
 │   ├── components/
-│   │   ├── Footer.jsx            # Closing footer with back-to-top & social links
-│   │   ├── Icons.jsx             # SVG icons (GitHub, LinkedIn)
-│   │   ├── Nav.jsx               # Header with scroll-reactive color & glass state
-│   │   └── Reveal.jsx            # Reusable viewport reveal wrapper with Framer Motion
+│   │   ├── Footer.jsx            # Closing footer with socials and back-to-top
+│   │   ├── Icons.jsx             # GitHub and LinkedIn icons
+│   │   ├── Nav.jsx               # Header with scroll-reactive colour and glass state
+│   │   └── Reveal.jsx            # Reusable scroll-reveal wrapper
 │   ├── data/
-│   │   └── site.js               # Central data source (projects, skills, content, socials)
+│   │   └── site.js               # Content: projects, skills, copy, socials
 │   ├── sections/
-│   │   ├── About.jsx             # Editorial story & interactive matte profile card
-│   │   ├── Contact.jsx           # Validated contact form with Web3Forms integration
-│   │   ├── Experience.jsx        # Scroll-drawn timeline with work history
-│   │   ├── Featured.jsx          # Alternating showcase of featured projects
-│   │   ├── Hero.jsx              # Large headline & 3D flippable sticky notes
-│   │   └── Skills.jsx            # 2×2 categorized technology grid
-│   ├── App.jsx                   # Main layout & scroll atmosphere controller
-│   ├── index.css                 # Design system tokens, gradients, noise & keyframes
-│   └── main.jsx                  # React application entry point
+│   │   ├── About.jsx             # Story and identity card
+│   │   ├── Contact.jsx           # Validated form with Web3Forms integration
+│   │   ├── Experience.jsx        # Scroll-drawn timeline
+│   │   ├── Featured.jsx          # Alternating project showcase
+│   │   ├── Hero.jsx              # Headline and flippable sticky notes
+│   │   └── Skills.jsx            # Categorised technology grid
+│   ├── App.jsx                   # Layout and scroll-driven atmosphere
+│   ├── index.css                 # Design tokens, gradients, grain and keyframes
+│   └── main.jsx                  # Entry point
 ├── generate_resume.js            # Standalone PDF resume compiler
-├── index.html                    # Meta tags, SEO & Google Fonts
+├── index.html                    # Meta tags, SEO and fonts
 ├── package.json
 └── vite.config.js
 ```
 
----
-
-## Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (v18 or higher recommended)
-- `npm`
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/immraviprakash/portfolio.git
-   cd portfolio
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-   Open your browser at `http://localhost:5173`.
+</details>
 
 ---
 
-## Build & Deployment
+## Getting started
 
-### Production Build
-
-Create an optimized static build in the `dist/` directory:
+**Prerequisites:** [Node.js](https://nodejs.org/) 18 or newer, and npm.
 
 ```bash
-npm run build
+git clone https://github.com/immraviprakash/ravi-prakash-portfolio.git
+cd ravi-prakash-portfolio
+npm install
+npm run dev
 ```
 
-Preview the production build locally:
+Then open [http://localhost:5173](http://localhost:5173).
 
-```bash
-npm run preview
-```
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Create an optimised build in `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Lint the code with Oxlint |
 
-### Linting
+---
 
-Run code linting with Oxlint:
+## Customising
 
-```bash
-npm run lint
-```
+- **Content** — projects, skills, copy and social links live in `src/data/site.js`
+- **Resume** — replace `public/Ravi-Prakash-Resume.pdf`
+- **Logos** — swap the project brand logos in `src/assets/`
+- **Design tokens** — colours, fonts, glows and grain are defined in `src/index.css`
+- **Contact form** — the form posts to Web3Forms. To receive messages yourself, create a free access key at [web3forms.com](https://web3forms.com/) and set it in the form config in `src/sections/Contact.jsx`. The key is a public, client-side key, so there is nothing secret to protect.
 
-### Deployment
+---
 
-The project builds to standard static HTML, CSS, and JavaScript bundles in the `dist/` folder. It can be deployed to any static host:
+## Deployment
 
-- **Vercel**: Import repository; framework preset will detect Vite automatically.
-- **Netlify**: Set build command to `npm run build` and publish directory to `dist`.
-- **GitHub Pages / Cloudflare Pages**: Deploy the output of `dist/`.
+The site is live at [imraviprakash.netlify.app](https://imraviprakash.netlify.app/). It builds to plain static files in `dist/`, so it runs on any static host:
+
+- **Netlify** — build command `npm run build`, publish directory `dist`
+- **Vercel** — import the repository; the Vite preset is detected automatically
+- **GitHub Pages / Cloudflare Pages** — deploy the contents of `dist/`
 
 ---
 
 ## Author
 
-**Ravi Prakash**  
-- **Email**: [immraviprakash@gmail.com](mailto:immraviprakash@gmail.com)  
-- **LinkedIn**: [linkedin.com/in/ravi-prakash-k-4953b8251](https://www.linkedin.com/in/ravi-prakash-k-4953b8251)  
-- **GitHub**: [@immraviprakash](https://github.com/immraviprakash)  
-- **Location**: Bangalore, India
+**Ravi Prakash**
+
+- Email: [immraviprakash@gmail.com](mailto:immraviprakash@gmail.com)
+- LinkedIn: [linkedin.com/in/ravi-prakash-k-4953b8251](https://www.linkedin.com/in/ravi-prakash-k-4953b8251)
+- GitHub: [@immraviprakash](https://github.com/immraviprakash)
+- Location: Bangalore, India
