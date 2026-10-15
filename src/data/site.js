@@ -121,7 +121,7 @@ export const projects = [
     stack: ['KOTLIN', 'JETPACK COMPOSE', 'FIREBASE', 'FIRESTORE', 'MVVM', 'GROQ AI'],
     links: {
       github: 'https://github.com/immraviprakash/rakta-seva-connect',
-      live: null,
+      live: 'https://raktasevaconnect.netlify.app/',
     },
     problem:
       'Locating verified, eligible blood donors during hospital emergencies is obstructed by fragmented communication and delayed response coordination.',
